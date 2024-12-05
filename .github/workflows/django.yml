@@ -46,5 +46,7 @@ jobs:
                -d '{"status":"success"}' -o response.json
           cat response.json
           grep -q "Deployment completed successfully" response.json
+      - name: Deployment URL
+        run: echo "Deployed application is available at https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev"
 
   
