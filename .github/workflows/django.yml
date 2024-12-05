@@ -27,10 +27,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirement.txt
 
-    - name: Run migrations
+    - name: Run Migrations
       run: |
-        cd App_Dev/e2e  # Navigate to the directory containing manage.py
-        python manage.py migrate
+        python e2e/manage.py migrate
 
     - name: Run tests
       run: python manage.py test
