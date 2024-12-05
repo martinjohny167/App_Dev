@@ -20,10 +20,14 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirement.txt
+          
+      - name: Run Migrations
+        run: |
+         python e2e/manage.py migrate
 
       - name: Run Tests
         run: |
-          python manage.py test
+          python e2e/manage.py test
 
   deploy:
     needs: build-and-test
