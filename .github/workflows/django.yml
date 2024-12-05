@@ -29,6 +29,7 @@ jobs:
 
     - name: Run migrations
       run: |
+        cd App_Dev/e2e  # Navigate to the directory containing manage.py
         python manage.py migrate
 
     - name: Run tests
