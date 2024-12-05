@@ -1,3 +1,5 @@
+import pymysql
+pymysql.install_as_MySQLdb()
 """
 Django settings for e2e project.
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'y*8i%=&^1g9gd)9l)c4gl(9n$(by043tus8&=m#m%!j&b!pzsa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,18 +78,15 @@ WSGI_APPLICATION = 'e2e.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'employee',
-        'USER': '',
-        'PASSWORD': '',    
-        'HOST': '',
-        'PORT': '',
-
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-        },
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'employee',  # Your database name
+        'USER': 'root',  # MySQL username
+        'PASSWORD': 'Martin1999!',  # MySQL password
+        'HOST': '3.85.159.55',  # Replace with the public IP address of your EC2 instance
+        'PORT': '3306',  # Default MySQL port
     },
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
