@@ -12,7 +12,7 @@ Testing are done and all the test cases for user master, candidate and company m
 ## Steps to be followed to run the application :
 
 - Before running the application make sure that you installed all the requirements given in requirement.txt <br />
-- Go to settings.py and change the database connection details to your server.<br />
+- Go to settings.py and change the database connection details to your server.(already connected to cloud hosted mssql)<br />
 	```
 	 DATABASES = {
     	  'default': {
