@@ -33,9 +33,9 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Deployment Webhook
-        run: |
-          curl -X POST https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev:5000/webhook \
-          -H "Content-Type: application/json" \
-          -H "X-Hub-Signature-256: sha256=$(echo -n '{"status":"success"}' | openssl dgst -sha256 -hmac "${{ secrets.WEBHOOK_SECRET }}" | awk '{print $2}')" \
-          -d '{"status":"success"}'
+    - name: Trigger Deployment Webhook
+      run: |
+        curl -X POST https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev:5000/webhook \
+             -H "Content-Type: application/json" \
+             -H "X-Hub-Signature-256: sha256=$(echo -n '{"status":"success"}' | openssl dgst -sha256 -hmac "${{ secrets.WEBHOOK_SECRET }}" | awk '{print $2}')" \
+             -d '{"status":"success"}'
