@@ -31,10 +31,9 @@ jobs:
       run: |
         python e2e/manage.py migrate
 
-    - name: Run Tests 
+    - name: Run Tests
       run: |
         python e2e/manage.py test
-
 
   cd:
     name: Continuous Deployment
@@ -42,19 +41,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Notify deployment
+      run: echo "Your application is deployed and live at https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev/loginpage"
 
-    - name: Deploy to Replit
-      env:
-        REPLIT_TOKEN: ${{ secrets.REPLIT_TOKEN }}
-        REPLIT_PROJECT: ${{ secrets.REPLIT_PROJECT }}
-      run: |
-        curl -X POST -H "Authorization: Bearer $REPLIT_TOKEN" \
-        -H "Content-Type: application/json" \
-        -d '{"projectName": "$REPLIT_PROJECT"}' \
-        https://replit.com/api/v0/deploy
 
-        - name: Notify deployment
-           run: echo "Your application is deployed and live at https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev/loginpage"
-
+        
