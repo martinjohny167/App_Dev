@@ -43,8 +43,7 @@ jobs:
         curl -X POST \
         -H "Authorization: my_secret_key" \
         -H "Content-Type: application/json" \
-        https://martinjohny29.AppDev.repl.co/webhook
-
+         https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev:5000/
     - name: Notify deployment
       run: echo "Your application is deployed and live at https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev/loginpage"
 
