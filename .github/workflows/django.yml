@@ -1,4 +1,4 @@
-name: Django CI/CD
+name: CI Pipeline
 
 on:
   push:
@@ -6,46 +6,33 @@ on:
       - main
 
 jobs:
-  ci:
-    name: Continuous Integration
+  build-and-test:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirement.txt
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
 
-    - name: Run Migrations
-      run: |
-        python e2e/manage.py migrate
+      - name: Run Tests
+        run: |
+          python manage.py test
 
-    - name: Run Tests
-      run: |
-        python e2e/manage.py test
-
-  cd:
-    name: Continuous Deployment
-    needs: ci
+  deploy:
+    needs: build-and-test
     runs-on: ubuntu-latest
-
     steps:
-    - name: Trigger Replit Deployment
-      run: |
-        curl -X POST \
-        -H "Authorization: my_secret_key" \
-        -H "Content-Type: application/json" \
-         https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev:5000/
-    - name: Notify deployment
-      run: echo "Your application is deployed and live at https://bf4b3700-4df4-46fa-99e2-793422b5c7f5-00-1c00gta23mbrk.spock.replit.dev/loginpage"
-
-
-        
+      - name: Trigger Deployment Webhook
+        run: |
+          curl -X POST https://your-webhook-url/webhook \
+          -H "Content-Type: application/json" \
+          -d '{"status":"success"}'
+        env:
+          WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
