@@ -1,1 +1,23 @@
-  
+  # Django framework
+django==5.1.4
+
+# Backend for Microsoft SQL Server
+django-mssql-backend==2.8.1
+mssql-django==1.2
+
+# Django dependencies
+asgiref>=3.6
+pytz>=2024.2
+sqlparse>=0.5.2
+
+# ODBC driver for Microsoft SQL Server
+pyodbc>=5.0.0
+
+# Handling image uploads
+pillow>=9.0.0
+
+# For secure connections
+cryptography>=41.0.0
+
+# PyMySQL (Alternative MySQL backend)
+pymysql>=1.0.0
