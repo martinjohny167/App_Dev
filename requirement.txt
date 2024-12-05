@@ -1,5 +1,5 @@
-  # Django framework
-django==5.1.4
+# Django framework
+django==4.1.10
 
 # Backend for Microsoft SQL Server
 django-mssql-backend==2.8.1
