@@ -5,7 +5,7 @@ We have created several views for all functions in views.py.
 Testing are done and all the test cases for user master, candidate and company models are added tests.py file.
 
 ## Modules and basic functions:
-	Employee – View the Job posts and can apply for the jobs.  
+	Employee – View the Job posts and can apply for the jobs.   
 	Employer – Post Jobs and view them.
 	Admin   - Delete and update users. 
 	
