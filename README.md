@@ -6,7 +6,7 @@ Testing are done and all the test cases for user master, candidate and company m
 
 ## Modules and basic functions:
 	Employee – View the Job posts and can apply for the jobs.   
-	Employer – Post Jobs and view them.
+	Employer – Post Jobs and view them. 
 	Admin   - Delete and update users. 
 	
 ## Steps to be followed to run the application :
